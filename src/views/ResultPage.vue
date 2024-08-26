@@ -13,16 +13,16 @@
                 </p>
                 <div class="basis-1/3 mx-5 flex flex-col items-center justify-center">
                     <div class="custom-div">
-                        <h2 class="font-semibold bg-orange-400">Task Achievement: {{ resultObject.taskAchievement }}</h2>
+                        <p class="bg-orange-400"><strong>Task Achievement:</strong> {{ resultObject.taskAchievement }}</p>
                     </div>
                     <div class="custom-div">
-                        <h2 class="font-semibold bg-yellow-400">Coherence and Cohesion: {{ resultObject.coherenceAndCohesion }}</h2>
+                        <p class="bg-yellow-400"><strong>Coherence and Cohesion:</strong> {{ resultObject.coherenceAndCohesion }}</p>
                     </div>
                     <div class="custom-div">
-                        <h2 class="font-semibold bg-sky-400">Lexical Resource: {{ resultObject.lexicalResource }}</h2>
+                        <p class="bg-sky-400"><strong>Lexical Resource:</strong> {{ resultObject.lexicalResource }}</p>
                     </div>
                     <div class="custom-div">
-                        <h2 class="font-semibold bg-purple-400">Grammatical Range and Accuracy: {{ resultObject.grammaticalRangeAndAccuracy }}</h2>
+                        <p class="bg-purple-400"><strong>Grammatical Range and Accuracy:</strong> {{ resultObject.grammaticalRangeAndAccuracy }}</p>
                     </div>
                 </div>
             </div>
