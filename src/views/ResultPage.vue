@@ -13,16 +13,16 @@
                 </p>
                 <div class="basis-1/3 mx-5 flex flex-col items-center justify-center">
                     <div class="custom-div">
-                        <p class="bg-orange-400"><strong>Task Achievement:</strong> {{ resultObject.taskAchievement }}</p>
+                        <p class="bg-orange-400"><strong>Trả lời đùng câu hỏi đề bài:</strong> {{ resultObject.taskAchievement }}</p>
                     </div>
                     <div class="custom-div">
-                        <p class="bg-yellow-400"><strong>Coherence and Cohesion:</strong> {{ resultObject.coherenceAndCohesion }}</p>
+                        <p class="bg-yellow-400"><strong>Mạch lạc và liên kết:</strong> {{ resultObject.coherenceAndCohesion }}</p>
                     </div>
                     <div class="custom-div">
-                        <p class="bg-sky-400"><strong>Lexical Resource:</strong> {{ resultObject.lexicalResource }}</p>
+                        <p class="bg-sky-400"><strong>Từ vựng:</strong> {{ resultObject.lexicalResource }}</p>
                     </div>
                     <div class="custom-div">
-                        <p class="bg-purple-400"><strong>Grammatical Range and Accuracy:</strong> {{ resultObject.grammaticalRangeAndAccuracy }}</p>
+                        <p class="bg-purple-400"><strong>Ngữ pháp:</strong> {{ resultObject.grammaticalRangeAndAccuracy }}</p>
                     </div>
                 </div>
             </div>

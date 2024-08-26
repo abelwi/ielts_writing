@@ -53,17 +53,10 @@ export default {
                 });
 
                 const prmopt = `Bạn đang là một giáo viên chấm ielts writing task 2. Đề bài và bài làm ở phía dưới. Hãy chấm điểm bài làm theo 4 tiêu chí sau: 
-                Trả lời đúng câu hỏi đề bài: (trả lời hết các câu hỏi đề bài đặt ra và trả lời đúng trọng tâm được yêu cầu), 
-                Mạch lạc và liên kết: (Sắp xếp ideas một cách logic giữa các đoạn và ideas trong một đoạn. Mỗi đoạn có ý chính rõ ràng.
-                    Sử dụng các liên từ để kết nối các vế câu và liên kết các câu với nhau một cách hiệu quả, tránh trùng lặp), 
-                Từ vựng: (Dùng vốn từ vựng thuộc topic đề yêu cầu. Tránh dùng những từ ngữ informal.
-                    Sử dụng từ đồng nghĩa, trái nghĩa để tránh lỗi lặp từ.
-                    Sử dụng được những từ vựng nâng cao, ít gặp.
-                    Kiểm tra lỗi chính tả khi chấm bài), 
-                Ngữ pháp: (Sử dụng đúng các cấu trúc mà mình nắm vững.
-                    Áp dụng các thì đúng với ngữ cảnh đề bài cho.
-                    Nếu có vốn ngữ pháp đa dạng nên sử dụng linh hoạt để tạo sự khác biệt.
-                    Tránh mắc các lỗi sai cơ bản vì lỗi càng cơ bản thì trừ điểm càng nặng),
+                Trả lời đúng câu hỏi đề bài,
+                Mạch lạc và liên kết,
+                Từ vựng,
+                Ngữ pháp,
                 rồi hiển thị điểm của từng tiêu chí ra màn hình. 
                 Hãy đưa Overall Band Score (đã làm tròn) ra màn hình. 
                 Đưa ra nhận xét tổng quát cho bài làm bằng tiếng việt, chỉ ra các lỗi sai trong bài làm và đưa ra những chỉnh sửa trong phần 
