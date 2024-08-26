@@ -30,7 +30,7 @@
 </template>
 
 <script>
-// import OpenAI from 'openai';
+import OpenAI from 'openai';
 export default {
     name: 'WritingPage',
 
@@ -42,42 +42,42 @@ export default {
             displayTextArray: [],
         }
     },
-    // methods: {
-    //     async checkAnswer() {
-    //         if (this.answer === '') {
-    //             alert('Bạn chưa nhập câu trả lời!')
-    //         } else {
-    //             const openai = new OpenAI({
-    //                 apiKey: process.env.VUE_APP_OPENAI_API_KEY,
-    //                 dangerouslyAllowBrowser: true
-    //             });
+    methods: {
+        async checkAnswer() {
+            if (this.answer === '') {
+                alert('Bạn chưa nhập câu trả lời!')
+            } else {
+                const openai = new OpenAI({
+                    apiKey: process.env.VUE_APP_OPENAI_API_KEY,
+                    dangerouslyAllowBrowser: true
+                });
 
-    //             const prmopt = `Bạn đang là một giáo viên chấm ielts writing task 2. Đề bài và bài làm ở phía dưới, hãy chấm điểm bài làm theo 4 tiêu chí sau: 
-    //             Task Achievement, Coherence and Cohesion, Lexical Resource, Grammatical Range and Accuracy rồi hiển thị điểm của từng tiêu chí ra màn hình 
-    //             Sau đó hãy đưa Overall Band Score (đã làm tròn) ra màn hình. Đưa ra nhận xét cho bài làm bằng tiếng việt, chỉ ra từ sai trong bài và sửa lại trong phần 
-    //             nhận xét.
-    //             Đề bài là "${this.question}" 
-    //             Bài làm: "${this.answer}"`
+                const prmopt = `Bạn đang là một giáo viên chấm ielts writing task 2. Đề bài và bài làm ở phía dưới, hãy chấm điểm bài làm theo 4 tiêu chí sau: 
+                Task Achievement, Coherence and Cohesion, Lexical Resource, Grammatical Range and Accuracy rồi hiển thị điểm của từng tiêu chí ra màn hình 
+                Sau đó hãy đưa Overall Band Score (đã làm tròn) ra màn hình. Đưa ra nhận xét cho bài làm bằng tiếng việt, chỉ ra từ sai trong bài và sửa lại trong phần 
+                nhận xét.
+                Đề bài là "${this.question}" 
+                Bài làm: "${this.answer}"`
 
-    //             try {
-    //                 const completion = await openai.chat.completions.create({
-    //                     messages: [
-    //                         { role: "user", content: prmopt },
-    //                     ],
-    //                     model: "gpt-4"
-    //                 });
-    //                 const resultText = completion.choices[0].message.content;
-    //                 this.$router.push({
-    //                     path: '/result',
-    //                     query: { userAnswer: this.answer, resultText: resultText }
-    //                 });
-    //             } catch (error) {
-    //                 console.error(error);
-    //                 alert("Đã xảy ra lỗi khi gọi API.");
-    //             }
-    //         }
-    //     }
-    // },
+                try {
+                    const completion = await openai.chat.completions.create({
+                        messages: [
+                            { role: "user", content: prmopt },
+                        ],
+                        model: "gpt-4"
+                    });
+                    const resultText = completion.choices[0].message.content;
+                    this.$router.push({
+                        path: '/result',
+                        query: { userAnswer: this.answer, resultText: resultText }
+                    });
+                } catch (error) {
+                    console.error(error);
+                    alert("Đã xảy ra lỗi khi gọi API.");
+                }
+            }
+        }
+    },
     computed: {
         wordCount() {
             return this.answer.trim().split(/\s+/).filter(word => word.length > 0).length;
