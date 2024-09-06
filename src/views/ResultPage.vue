@@ -1,91 +1,112 @@
 <template>
     <div class="mt-10">
-        <h1 class="text-4xl font-bold my-10">Kết Quả Của Bạn!</h1>
-        <div v-if="resultObject">
-            <div class="flex flex-row items-center">
-                <div class="basis-1/6">
-                    <p>Overall Band Score:</p>
-                    <h1 class="text-6xl text-green-600"><strong>{{ resultObject.overallBandScore }}</strong></h1>
+        <h1 class="text-2xl font-medium mb-10">Kết quả chấm điểm của bạn!</h1>
+        
+        <div class="flex justify-between">
+            <div class="w-1/5 p-2 mx-10">
+                <!-- Hiển thị Kết quả Task Achievement -->
+                <div class="mb-4 p-4 border rounded-xl bg-customOrange drop-shadow-lg shadow-inner">
+                    <h2 class="font-semibold">Task Achievement (TA)</h2>
+                    <p>{{ resultObjects.taskAchievement.score }}</p>
+                    <!-- <p>{{ resultObjects.taskAchievement.comment }}</p> -->
                 </div>
 
-                <p class="basis-1/2 px-5 py-3 mx-auto border-2 border-gray-600 rounded-lg bg-slate-200 text-left">
+                <!-- Hiển thị Kết quả Coherence and Cohesion -->
+                <div class="mb-4 p-4 border rounded-xl bg-customYellow drop-shadow-lg shadow-inner">
+                    <h2 class="font-semibold">Coherence and Cohesion (CC)</h2>
+                    <p>{{ resultObjects.coherenceCohesion.score }}</p>
+                    <!-- <p>{{ resultObjects.coherenceCohesion.comment }}</p> -->
+                </div>
+
+                <!-- Hiển thị Kết quả Lexical Resource -->
+                <div class="mb-4 p-4 border rounded-xl bg-customBlue drop-shadow-lg shadow-inner">
+                    <h2 class="font-semibold">Lexical Resource (LR)</h2>
+                    <p>{{ resultObjects.lexicalResource.score }}</p>
+                    <!-- <p>{{ resultObjects.lexicalResource.comment }}</p> -->
+                </div>
+
+                <!-- Hiển thị Kết quả Grammatical Range and Accuracy -->
+                <div class="mb-4 p-4 border rounded-xl bg-customPurple drop-shadow-lg shadow-inner">
+                    <h2 class="font-semibold">Grammatical Range and Accuracy (GRA)</h2>
+                    <p>{{ resultObjects.grammaticalRangeAccuracy.score }}</p>
+                    <!-- <p>{{ resultObjects.grammaticalRangeAccuracy.comment }}</p> -->
+                </div>
+            </div>
+            
+            <div class="w-3/5 p-2 items-center"> 
+                <p class="px-5 py-3 border-2 border-gray-600 rounded-xl bg-customBackground text-left">
                     {{ userAnswer }}
                 </p>
-                <div class="basis-1/3 mx-5 flex flex-col items-center justify-center">
-                    <div class="custom-div">
-                        <h2 class="font-semibold bg-orange-400">Task Achievement: {{ resultObject.taskAchievement }}</h2>
-                    </div>
-                    <div class="custom-div">
-                        <h2 class="font-semibold bg-yellow-400">Coherence and Cohesion: {{ resultObject.coherenceAndCohesion }}</h2>
-                    </div>
-                    <div class="custom-div">
-                        <h2 class="font-semibold bg-sky-400">Lexical Resource: {{ resultObject.lexicalResource }}</h2>
-                    </div>
-                    <div class="custom-div">
-                        <h2 class="font-semibold bg-purple-400">Grammatical Range and Accuracy: {{ resultObject.grammaticalRangeAndAccuracy }}</h2>
-                    </div>
-                </div>
             </div>
-            <div class="mb-4">
-                <h2 class="font-semibold">{{ resultObject.comment }}</h2>
-            
+            <!-- Hiển thị Overall Band -->
+            <div class="w-1/5 p-2">
+                <h2 class="font-semibold">Overall Band</h2>
+                <p class="text-green-600 font-semibold text-6xl mt-5">{{ resultObjects.overallBand.score }}</p>
             </div>
         </div>
-    </div>
-</template>
 
-<script>
-export default {
+        <!-- Hiển thị Nhận xét tổng thể -->
+        <div class="mb-4 p-4 border rounded bg-gray-100 mt-10">
+            <h2 class="font-semibold">Nhận xét tổng thể:</h2>
+            <p>{{ resultObjects.overallComment }}</p>
+        </div>
+
+        <!-- Hiển thị Lỗi cần lưu ý -->
+        <div class="mb-4 p-4 border rounded bg-gray-100">
+            <h2 class="font-semibold">Lỗi cần lưu ý:</h2>
+                <ul>
+                    <li v-for="(error, index) in resultObjects.errors" :key="index">
+                    {{ error }}
+                    </li>
+                </ul>
+        </div>
+
+
+        <div class="card">
+
+        </div>
+    </div>
+  </template>
+  
+  <script>
+  export default {
     name: 'ResultPage',
     data() {
-        return {
-            resultObject: null,
-            userAnswer: this.$route.query.userAnswer || '',
-        }
+      return {
+        resultObjects: {},
+        userAnswer: this.$route.query.userAnswer || '',
+      };
     },
-    mounted() {
-        this.processResult(this.$route.query.resultText);
-    },
-    methods: {
-        processResult(result) {
-            const resultLines = result.split('\n').filter(line => line.trim() !== '');
-            let resultObject = {};
-            resultLines.forEach(line => {
-                if (line.includes('Task Achievement:')) {
-                    resultObject.taskAchievement = line.replace('Task Achievement:', '').trim();
-                } else if (line.includes('Coherence and Cohesion:')) {
-                    resultObject.coherenceAndCohesion = line.replace('Coherence and Cohesion:', '').trim();
-                } else if (line.includes('Lexical Resource:')) {
-                    resultObject.lexicalResource = line.replace('Lexical Resource:', '').trim();
-                } else if (line.includes('Grammatical Range and Accuracy:')) {
-                    resultObject.grammaticalRangeAndAccuracy = line.replace('Grammatical Range and Accuracy:', '').trim();
-                } else if (line.includes('Overall Band Score:')) {
-                    resultObject.overallBandScore = line.replace('Overall Band Score:', '').trim();
-                } else {
-                    resultObject.comment = line.trim();
-                }
-            });
-            this.resultObject = resultObject;
-            console.log(resultObject)
-        }
+    created() {
+      // Nhận object từ query string và parse lại thành object
+        const resultObjects = JSON.parse(this.$route.query.resultObjects);
+        this.resultObjects = resultObjects;
     }
-}
-</script>
+  };
 
-<style scoped>
+  </script>
+  
+  <style scoped>
+    .card {
+        aspect-ratio: 1 / 1.6;
+        border: 0.5vmin solid var(--border);
+        cursor: pointer;
+        position: relative;
+        width: 56vmin;
+    }
 
-h2 {
-    margin-bottom: 10px;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    border-radius: 10px;
-    padding-left: 16px;
-    padding-right: 16px;
-}
+    .card:before {
+        background: linear-gradient(
+            130deg,
+        
 
-.custom-div {
-    width: 80%;
-    text-align: center;
-}
-
-</style>
+        );
+        content: "";
+        height: 100%;
+        left: 0px;
+        position: absolute;
+        top: 0px;
+        width: 100%;
+    }
+  </style>
+  
