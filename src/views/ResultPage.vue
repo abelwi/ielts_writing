@@ -3,34 +3,18 @@
         <h1 class="text-2xl font-medium mb-10">Kết quả chấm điểm của bạn!</h1>
         
         <div class="flex justify-between">
-            <div class="w-1/5 p-2 mx-10">
+            <div class="w-1/5 p-2 mx-10 space-y-4">
                 <!-- Hiển thị Kết quả Task Achievement -->
-                <div class="mb-4 p-4 border rounded-xl bg-customOrange drop-shadow-lg shadow-inner">
-                    <h2 class="font-semibold">Task Achievement (TA)</h2>
-                    <p>{{ resultObjects.taskAchievement.score }}</p>
-                    <!-- <p>{{ resultObjects.taskAchievement.comment }}</p> -->
-                </div>
+                <TaskAchievement />
 
                 <!-- Hiển thị Kết quả Coherence and Cohesion -->
-                <div class="mb-4 p-4 border rounded-xl bg-customYellow drop-shadow-lg shadow-inner">
-                    <h2 class="font-semibold">Coherence and Cohesion (CC)</h2>
-                    <p>{{ resultObjects.coherenceCohesion.score }}</p>
-                    <!-- <p>{{ resultObjects.coherenceCohesion.comment }}</p> -->
-                </div>
+                <CoherenceAndCohesion />
 
                 <!-- Hiển thị Kết quả Lexical Resource -->
-                <div class="mb-4 p-4 border rounded-xl bg-customBlue drop-shadow-lg shadow-inner">
-                    <h2 class="font-semibold">Lexical Resource (LR)</h2>
-                    <p>{{ resultObjects.lexicalResource.score }}</p>
-                    <!-- <p>{{ resultObjects.lexicalResource.comment }}</p> -->
-                </div>
+                <LexicalResource />
 
                 <!-- Hiển thị Kết quả Grammatical Range and Accuracy -->
-                <div class="mb-4 p-4 border rounded-xl bg-customPurple drop-shadow-lg shadow-inner">
-                    <h2 class="font-semibold">Grammatical Range and Accuracy (GRA)</h2>
-                    <p>{{ resultObjects.grammaticalRangeAccuracy.score }}</p>
-                    <!-- <p>{{ resultObjects.grammaticalRangeAccuracy.comment }}</p> -->
-                </div>
+                <GrammaticalAndAccuracy />
             </div>
             
             <div class="w-3/5 p-2 items-center"> 
@@ -61,15 +45,23 @@
                 </ul>
         </div>
 
-
-        <div class="card">
-
-        </div>
     </div>
   </template>
   
   <script>
+import LexicalResource from '../components/LexicalResource.vue';
+import CoherenceAndCohesion from '../components/CoherenceAndCohesion.vue';
+import TaskAchievement from '../components/TaskAchievement.vue';
+import GrammaticalAndAccuracy from '../components/GrammaticalAndAccuracy.vue';
+
   export default {
+    components: {
+        TaskAchievement,
+        CoherenceAndCohesion,
+        LexicalResource,
+        GrammaticalAndAccuracy,
+
+    },
     name: 'ResultPage',
     data() {
       return {
@@ -87,26 +79,6 @@
   </script>
   
   <style scoped>
-    .card {
-        aspect-ratio: 1 / 1.6;
-        border: 0.5vmin solid var(--border);
-        cursor: pointer;
-        position: relative;
-        width: 56vmin;
-    }
-
-    .card:before {
-        background: linear-gradient(
-            130deg,
-        
-
-        );
-        content: "";
-        height: 100%;
-        left: 0px;
-        position: absolute;
-        top: 0px;
-        width: 100%;
-    }
+    
   </style>
   

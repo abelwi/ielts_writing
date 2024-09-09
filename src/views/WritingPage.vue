@@ -112,17 +112,17 @@ export default {
 
         Provide scores and comments for the range and accuracy of the 4 criteria in the following format:
 
-        Task Achievement (TA): score (rounded to the nearest 0.5) - (nhận xét ngắn bằng tiếng việt, cho thêm ví dụ cải thiện)
-        Coherence and Cohesion (CC): score (rounded to the nearest 0.5) - (nhận xét ngắn bằng tiếng việt, cho thêm ví dụ cải thiện)
-        Lexical Resource (LR): score (rounded to the nearest 0.5) - (nhận xét ngắn bằng tiếng việt, cho thêm ví dụ cải thiện)
-        Grammatical Range and Accuracy (GRA): score (rounded to the nearest 0.5) - (nhận xét ngắn bằng tiếng việt, cho thêm ví dụ cải thiện)
-        Overall Band: score (average of all 4 criteria, rounded to the nearest 0.5) 
-        Nhận xét tổng thể: (đưa lời khuyên, lời khen ngợi,... bằng tiếng việt)
+        Task Achievement (TA): (score rounded to the nearest 0.5, scored 1 band lower) - (nhận xét ngắn bằng tiếng việt, cho thêm ví dụ cải thiện)
+        Coherence and Cohesion (CC): (score rounded to the nearest 0.5, scored 1 band lower) - (nhận xét ngắn bằng tiếng việt, cho thêm ví dụ cải thiện)
+        Lexical Resource (LR): (score rounded to the nearest 0.5, scored 1 band lower) - (nhận xét ngắn bằng tiếng việt, cho thêm ví dụ cải thiện)
+        Grammatical Range and Accuracy (GRA): (score rounded to the nearest 0.5, scored 1 band lower) - (nhận xét ngắn bằng tiếng việt, cho thêm ví dụ cải thiện)
+        Overall Band: (score average of all 4 criteria, rounded to the nearest 0.5) 
+        Nhận xét tổng thể: (đưa lời khuyên chính xác cụ thể dẫn chứng, lời khen ngợi,... bằng tiếng việt)
 
         (Error Start)
-        - (Original error sentence - 1st sentence) -> (Correct sentence): Giải thích lỗi (bằng tiếng việt).\n
-        - (Original error sentence - 2nd sentence) -> (Correct sentence): Giải thích lỗi (bằng tiếng việt).\n
-        - (Original error sentence - 3rd sentence) -> (Correct sentence): Giải thích lỗi (bằng tiếng việt).\n 
+        - (Original error sentence - 1st sentence) -> (Correct sentence): (Giải thích lỗi cụ thể, chính xác bằng tiếng việt).\n
+        - (Original error sentence - 2nd sentence) -> (Correct sentence): (Giải thích lỗi cụ thể, chính xác bằng tiếng việt).\n
+        - (Original error sentence - 3rd sentence) -> (Correct sentence): (Giải thích lỗi cụ thể, chính xác bằng tiếng việt).\n 
         (Error End)
 
         Focus particularly on the 4 criteria in Writing. Avoid using additional symbols or numbers (#, *, 1, 2, 3,…) and don't call words in ().
