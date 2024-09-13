@@ -5,12 +5,12 @@
         rounded-xl bg-customBlue drop-shadow-lg shadow-inner px-3"
         @mouseover="hover = true"
         @mouseleave="hover = false"
-        :class="hover ? 'h-72' : 'h-16'" 
+        :class="hover ? 'h-96' : 'h-16'" 
       >
         <h1 class="font-semibold text-center pt-3">Lexical Resource (LR): {{ resultObjects.lexicalResource.score }}</h1>
     
         <p 
-          class="text-center transition-opacity duration-300 px-2 break-words"
+          class="text-center transition-opacity duration-300 px-2 break-words mt-4"
           :class="{ 'opacity-100': hover, 'opacity-0': !hover }"
         >
         {{ resultObjects.lexicalResource.comment }}
