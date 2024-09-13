@@ -51,8 +51,12 @@ export default {
     },
     methods: {
     async checkAnswer() {
+        const wordCount = this.answer.trim().split(/\s+/).filter(word => word.length > 0).length;
+
         if (this.answer === '') {
             alert('Bạn chưa nhập câu trả lời!');
+        } else if (wordCount < 200) {
+            alert('Đoạn văn này chưa phù hợp để chấm điểm. Vui lòng nhập ít nhất 240 từ.');
         } else {
             this.loading = true;
             setTimeout(async () => {
