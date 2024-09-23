@@ -1,10 +1,9 @@
 <template>
     <div class="flex justify-center items-center">
-        <div class="box-content w-full sm:w-2/3 mt-2 text-center">
+        <div class="box-content w-full sm:w-2/3 text-center">
             <p class="ml-1 pl-5 sm:ml-4 sm:pl-40 text-left font-semibold mt-4">Câu hỏi:</p>
             <p 
-                class="w-5/6 sm:w-2/3 mt-4 px-5 py-3 mx-auto border-2 border-gray-600 rounded-lg bg-slate-200 text-left"
-                style="white-space: pre-wrap; overflow-wrap: break-word; word-break: break-word;"
+                class="w-5/6 sm:w-2/3 mt-4 px-5 py-3 mx-auto border border-base-content rounded-lg bg-base-300 text-left drop-shadow-lg shadow-inner"
             >
                 {{ question }}
             </p>
@@ -14,18 +13,14 @@
                 <p>{{ wordCount }}/250</p>
             </div>
             <textarea 
-                class="w-5/6 sm:w-2/3 mt-2 px-3 pb-96 pt-4 rounded-xl border-2 border-gray-400 focus:border-gray-800 focus:outline-none"
+                class="textarea w-5/6 text-md sm:w-2/3 mt-2 px-3 pb-96 pt-4 rounded-xl drop-shadow-xl shadow-inner border-2 border-base-300 focus:border-base-content focus:outline-none"
                 required
                 placeholder="Nhập câu trả lời của bạn..."
                 v-model="answer"
             ></textarea>
 
             <button 
-                :class="{
-                    'bg-lime-300': answer === '' || loading, 
-                    'bg-lime-500 hover:bg-lime-600 active:bg-lime-700 transform active:scale-95 transition-transform duration-100': answer !== '' && !loading, 
-                }"
-                class="bg-lime-300 w-2/3 px-12 sm:w-2/5 sm:px-20 py-2 sm:py-3 mt-4 mb-10 font-bold rounded-xl drop-shadow-xl shadow-xl shadow-lime-500/50"
+                class="btn btn-wide btn-md btn-secondary px-12 sm:w-2/5 sm:px-20 py-2 sm:py-3 mt-4 mb-10 font-bold rounded-xl drop-shadow-xl shadow-xl"
                 @click="checkAnswer"
                 :disabled="loading"
             >
@@ -122,17 +117,17 @@ export default {
 
                 Provide scores and comments for the range and accuracy of the 4 criteria in the following format:
 
-                Task Achievement (TA): (score rounded to the nearest 0.5, scored 1 band lower) - (nhận xét ngắn bằng tiếng việt, cho thêm ví dụ cải thiện)
-                Coherence and Cohesion (CC): (score rounded to the nearest 0.5, scored 1 band lower) - (nhận xét ngắn bằng tiếng việt, cho thêm ví dụ cải thiện)
-                Lexical Resource (LR): (score rounded to the nearest 0.5, scored 1 band lower) - (nhận xét ngắn bằng tiếng việt, cho thêm ví dụ cải thiện)
-                Grammatical Range and Accuracy (GRA): (score rounded to the nearest 0.5, scored 1 band lower) - (nhận xét ngắn bằng tiếng việt, cho thêm ví dụ cải thiện)
+                Task Achievement (TA): (score rounded to the nearest 0.5, scored 1 band lower) - (nhận xét chi tiết cụ thể, giải thích tại sao bài làm lại được band điểm như vậy, đưa ra giải pháp để nâng band điểm bằng tiếng việt, cho thêm ví dụ cải thiện)
+                Coherence and Cohesion (CC): (score rounded to the nearest 0.5, scored 1 band lower) - (nhận xét chi tiết cụ thể, giải thích tại sao bài làm lại được band điểm như vậy, đưa ra giải pháp để nâng band điểm bằng tiếng việt, cho thêm ví dụ cải thiện)
+                Lexical Resource (LR): (score rounded to the nearest 0.5, scored 1 band lower) - (nhận xét chi tiết cụ thể, giải thích tại sao bài làm lại được band điểm như vậy, đưa ra giải pháp để nâng band điểm bằng tiếng việt, cho thêm ví dụ cải thiện)
+                Grammatical Range and Accuracy (GRA): (score rounded to the nearest 0.5, scored 1 band lower) - (nhận xét chi tiết cụ thể, giải thích tại sao bài làm lại được band điểm như vậy, đưa ra giải pháp để nâng band điểm bằng tiếng việt, cho thêm ví dụ cải thiện)
                 Overall Band: (score average of all 4 criteria, rounded to the nearest 0.5) 
-                Nhận xét tổng thể: (đưa lời khuyên chính xác cụ thể dẫn chứng, lời khen ngợi,... bằng tiếng việt)
+                Nhận xét tổng thể: (đưa lời khuyên chính xác tổng quát cho bài làm, nêu ra những hạn chế và ưu điểm của bài làm,... bằng tiếng việt)
 
                 (Error Start)
-                - (Original error sentence - 1st sentence) -> (Correct sentence): (Giải thích lỗi cụ thể, chính xác bằng tiếng việt).\n
-                - (Original error sentence - 2nd sentence) -> (Correct sentence): (Giải thích lỗi cụ thể, chính xác bằng tiếng việt).\n
-                - (Original error sentence - 3rd sentence) -> (Correct sentence): (Giải thích lỗi cụ thể, chính xác bằng tiếng việt).\n 
+                - (Original error sentence - 1st sentence) -> (Correct sentence): (Giải thích lỗi cụ thể, tại sao lại có lỗi sai này, đưa ra dẫn chứng và chữa lại cho chính xác bằng tiếng việt).\n
+                - (Original error sentence - 2nd sentence) -> (Correct sentence): (Giải thích lỗi cụ thể, tại sao lại có lỗi sai này, đưa ra dẫn chứng và chữa lại cho chính xác bằng tiếng việt).\n
+                - (Original error sentence - 3rd sentence) -> (Correct sentence): (Giải thích lỗi cụ thể, tại sao lại có lỗi sai này, đưa ra dẫn chứng và chữa lại cho chính xác bằng tiếng việt).\n 
                 (Error End)
 
                 Focus particularly on the 4 criteria in Writing. Avoid using additional symbols or numbers (#, *, 1, 2, 3,…) and don't call words in ().
@@ -160,7 +155,7 @@ export default {
                 } finally {
                     this.loading = false;
                 }
-            }, 3000);
+            }, 1000);
         }
     },
 

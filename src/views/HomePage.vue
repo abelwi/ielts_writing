@@ -10,14 +10,14 @@
         <div class="mb-4 sm:mb-7 mt-10 sm:mt-16 flex justify-center">
           <router-link
             to="/question"
-            class="bg-lime-400 px-8 py-3 sm:px-14 sm:py-4 rounded-lg drop-shadow-xl shadow hover:shadow-xl shadow-lime-500/50"
+            class="btn btn-wide btn-secondary px-8 py-3 sm:px-14 sm:py-4 rounded-lg drop-shadow-xl shadow hover:shadow-xl"
           >
             BẮT ĐẦU NÀO
           </router-link>
         </div>
       </div>
     </div>
-    <div class="mt-10 sm:mt-10 bg-gray-300 w-full sm:h-56 p-4 shadow-inner">
+    <div class="mt-10 sm:mt-10 bg-base-300 w-full sm:h-56 p-4 shadow-inner">
       <!-- <div class="bg-gray-300 w-full sm:h-44 p-4 shadow-inner"> -->
         <p class="font-semibold text-left ml-2 sm:ml-8 pt-2">P/s:</p>
         <p class="text-left mx-2 sm:mx-14 font-thin">Mình là Lam - người tạo chiếc web nhỏ này cho cậu, hi vọng nó sẽ giúp cậu phần nào.
@@ -25,7 +25,7 @@
         </p>
 
         <p class="text-right mt-5 mr-4 sm:mr-10">Liên hệ mình qua facebook này nè >>
-          <a href="https://www.facebook.com/huyenhuong.nguyen.77" target="_blank" class="text-lime-600">
+          <a href="https://www.facebook.com/huyenhuong.nguyen.77" target="_blank" class="link link-primary">
             Đây nè!!!
           </a>
         </p>

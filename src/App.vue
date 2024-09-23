@@ -4,12 +4,12 @@
       <nav class="flex flex-col sm:flex-row justify-center sm:justify-between mx-4 sm:mx-16 space-y-4 sm:space-y-0">
         <router-link
           to="/"
-          class="font-bold px-3 sm:px-5 py-1 sm:py-2 text-md sm:text-lg rounded-lg drop-shadow-lg shadow hover:shadow-xl"
-          :class="{ 'text-lime-500': isHomePage, 'text-black': !isHomePage }"
+          class="btn btn-outline px-3 sm:px-5 py-1 sm:py-2 text-md sm:text-lg rounded-lg shadow hover:shadow-xl hover:bg-secondary hover:border-secondary"
+          :class="{ 'text-secondary': isHomePage, 'text-secondaryx-content': !isHomePage }"
         >
-          Home
+          Giới thiệu
         </router-link>
-        <div class="bg-gray-300 px-3 py-1 sm:px-5 sm:py-2 rounded-lg drop-shadow-lg shadow hover:shadow-xl">
+        <div class="btn btn-base-200 px-3 py-1 sm:px-5 sm:py-2 rounded-lg drop-shadow-lg shadow hover:shadow-xl hover:bg-base-300 hover:border-base-200">
           <router-link to="/question" class="font-semibold text-md sm:text-lg">Nhập câu hỏi mới >></router-link>
         </div>
       </nav>
