@@ -4,8 +4,8 @@
       <nav class="flex flex-col sm:flex-row justify-center sm:justify-between mx-4 sm:mx-16 space-y-4 sm:space-y-0">
         <router-link
           to="/"
-          class="btn btn-outline px-3 sm:px-5 py-1 sm:py-2 text-md sm:text-lg rounded-lg shadow hover:shadow-xl hover:bg-secondary hover:border-secondary"
-          :class="{ 'text-secondary': isHomePage, 'text-secondaryx-content': !isHomePage }"
+          class="btn btn-outline px-3 sm:px-5 py-1 sm:py-2 text-md sm:text-lg rounded-lg shadow hover:shadow-xl hover:bg-accent hover:border-accent"
+          :class="{ 'text-accent': isHomePage, 'text-accent-content': !isHomePage }"
         >
           Giới thiệu
         </router-link>

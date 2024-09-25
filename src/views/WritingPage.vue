@@ -1,31 +1,43 @@
 <template>
-    <div class="flex justify-center items-center">
-        <div class="box-content w-full sm:w-2/3 text-center">
-            <p class="ml-1 pl-5 sm:ml-4 sm:pl-40 text-left font-semibold mt-4">Câu hỏi:</p>
-            <p 
-                class="w-5/6 sm:w-2/3 mt-4 px-5 py-3 mx-auto border border-base-content rounded-lg bg-base-300 text-left drop-shadow-lg shadow-inner"
-            >
-                {{ question }}
-            </p>
+    <div class="relative">
+        <div class="flex justify-center items-center">
+            <div class="box-content w-full sm:w-2/3 text-center">
+                <p class="ml-1 pl-5 sm:ml-4 sm:pl-40 text-left font-semibold mt-4">Câu hỏi:</p>
+                <p 
+                    class="w-5/6 sm:w-2/3 mt-4 px-5 py-3 mx-auto border border-base-content rounded-lg bg-base-300 text-left drop-shadow-lg shadow-inner"
+                >
+                    {{ question }}
+                </p>
 
-            <div class="flex justify-between items-end mx-6 sm:mx-44 mt-4">
-                <p class="font-semibold">Câu trả lời của bạn:</p>
-                <p>{{ wordCount }}/250</p>
+                <div class="flex justify-between items-end mx-6 sm:mx-44 mt-4">
+                    <p class="font-semibold">Câu trả lời của bạn:</p>
+                    <p>{{ wordCount }}/250</p>
+                </div>
+                <textarea 
+                    class="textarea w-5/6 sm:w-2/3 text-md sm:text-md mt-2 px-3 pb-96 pt-4 rounded-xl drop-shadow-xl shadow-inner border-2 border-base-200 focus:border-base-content focus:outline-none"
+                    required
+                    placeholder="Nhập câu trả lời của bạn..."
+                    v-model="answer"
+                ></textarea>
+
+                <button 
+                    class="btn btn-wide btn-md btn-accent px-12 sm:w-2/5 sm:px-20 py-2 sm:py-3 mt-4 mb-14 font-bold rounded-xl drop-shadow-xl shadow-xl"
+                    @click="checkAnswer"
+                    :disabled="loading"
+                >
+                    {{ loading ? 'Đang chấm điểm...' : 'Chấm điểm' }}
+                </button>
             </div>
-            <textarea 
-                class="textarea w-5/6 text-md sm:w-2/3 mt-2 px-3 pb-96 pt-4 rounded-xl drop-shadow-xl shadow-inner border-2 border-base-300 focus:border-base-content focus:outline-none"
-                required
-                placeholder="Nhập câu trả lời của bạn..."
-                v-model="answer"
-            ></textarea>
+        </div>
 
-            <button 
-                class="btn btn-wide btn-md btn-secondary px-12 sm:w-2/5 sm:px-20 py-2 sm:py-3 mt-4 mb-10 font-bold rounded-xl drop-shadow-xl shadow-xl"
-                @click="checkAnswer"
-                :disabled="loading"
-            >
-                {{ loading ? 'Đang chấm điểm...' : 'Chấm điểm' }}
-            </button>
+        <div v-if="loading" class="fixed inset-0 flex items-center justify-center bg-opacity-50 bg-secondary z-50">
+            <div class="text-center text-secondary-content">
+                <p class="text-lg sm:text-xl font-bold">Chờ một chút nhe, đang chấm nè...</p>
+                <svg class="animate-spin h-10 w-10 mt-4 mx-auto text-secondary-content" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+                </svg>
+            </div>
         </div>
     </div>
 </template>
@@ -125,9 +137,9 @@ export default {
                 Nhận xét tổng thể: (đưa lời khuyên chính xác tổng quát cho bài làm, nêu ra những hạn chế và ưu điểm của bài làm,... bằng tiếng việt)
 
                 (Error Start)
-                - (Original error sentence - 1st sentence) -> (Correct sentence): (Giải thích lỗi cụ thể, tại sao lại có lỗi sai này, đưa ra dẫn chứng và chữa lại cho chính xác bằng tiếng việt).\n
-                - (Original error sentence - 2nd sentence) -> (Correct sentence): (Giải thích lỗi cụ thể, tại sao lại có lỗi sai này, đưa ra dẫn chứng và chữa lại cho chính xác bằng tiếng việt).\n
-                - (Original error sentence - 3rd sentence) -> (Correct sentence): (Giải thích lỗi cụ thể, tại sao lại có lỗi sai này, đưa ra dẫn chứng và chữa lại cho chính xác bằng tiếng việt).\n 
+                (Original error sentence - 1st sentence) -> (Correct sentence): (Giải thích lỗi cụ thể, tại sao lại có lỗi sai này, đưa ra dẫn chứng và chữa lại cho chính xác bằng tiếng việt).\n
+                (Original error sentence - 2nd sentence) -> (Correct sentence): (Giải thích lỗi cụ thể, tại sao lại có lỗi sai này, đưa ra dẫn chứng và chữa lại cho chính xác bằng tiếng việt).\n
+                (Original error sentence - 3rd sentence) -> (Correct sentence): (Giải thích lỗi cụ thể, tại sao lại có lỗi sai này, đưa ra dẫn chứng và chữa lại cho chính xác bằng tiếng việt).\n 
                 (Error End)
 
                 Focus particularly on the 4 criteria in Writing. Avoid using additional symbols or numbers (#, *, 1, 2, 3,…) and don't call words in ().
@@ -147,10 +159,12 @@ export default {
                         query: { 
                             question: this.question,
                             userAnswer: this.answer,
-                            resultObjects: JSON.stringify(resultObjects) },
+                            resultObjects: JSON.stringify(resultObjects)
+                        },
                     });
                 } catch (error) {
-                    console.error(error);
+                    // console.error(error);
+                    console.error('Error details:', error);
                     alert('Đã xảy ra lỗi khi gọi API.');
                 } finally {
                     this.loading = false;
@@ -161,16 +175,17 @@ export default {
 
     parseResultText(resultText) {
         const resultObjects = {
-        taskAchievement: {},
-        coherenceCohesion: {},
-        lexicalResource: {},
-        grammaticalRangeAccuracy: {},
-        overallBand: {},
-        overallComment: '',
-        errors: [],
+            taskAchievement: {},
+            coherenceCohesion: {},
+            lexicalResource: {},
+            grammaticalRangeAccuracy: {},
+            overallBand: {},
+            overallComment: '',
+            errors: [],
         };
 
         const lines = resultText.split('\n').filter((line) => line.trim() !== '');
+
         lines.forEach((line) => {
             if (line.includes('Task Achievement')) {
                 const rest = line.split(':')[1];
@@ -201,6 +216,7 @@ export default {
             }
         });
             return resultObjects;
+            
         },
     },
 
@@ -218,5 +234,17 @@ button {
 }
 button.hover {
     background-color: #86efac;
+}
+
+.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
 }
 </style>

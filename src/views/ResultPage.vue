@@ -1,7 +1,7 @@
 <template>
-    <div class="my-5 sm:my-16">        
+    <div class="my-5 sm:my-10">        
         <div class="flex flex-col sm:flex-row justify-center sm:justify-between space-y-4 mb-3 sm:mb-10"> 
-          <div class="w-5/6 sm:w-3/5 p-2 mx-8 sm:mx-10 items-center"> 
+          <div class="w-5/6 sm:w-3/5 p-2 mx-8 sm:mx-10 items-center mt-24"> 
             <p 
               class="px-3 sm:px-5 py-3 border border-base-300 rounded-lg bg-base-200 text-left mb-5 shadow-inner"
             >

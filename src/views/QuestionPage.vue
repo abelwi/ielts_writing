@@ -14,7 +14,7 @@
         <img class="w-4 sm:w-5 h-4 sm:h-5 ml-2 mt-4 cursor-pointer" v-if="text"  src="/clear_button.png" alt="clear" @click="clearText">
       </div>
       <button 
-        class="btn btn-wide btn-md btn-secondary py-2 sm:py-3 font-bold rounded-xl shadow-xl"
+        class="btn btn-wide btn-md btn-accent py-2 sm:py-3 font-bold rounded-xl shadow-xl"
         id="test"
         @click="checkText"
       >

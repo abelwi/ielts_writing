@@ -10,7 +10,7 @@
         <div class="mb-4 sm:mb-7 mt-10 sm:mt-16 flex justify-center">
           <router-link
             to="/question"
-            class="btn btn-wide btn-secondary px-8 py-3 sm:px-14 sm:py-4 rounded-lg drop-shadow-xl shadow hover:shadow-xl"
+            class="btn btn-wide btn-accent px-8 py-3 sm:px-14 sm:py-4 rounded-lg drop-shadow-xl shadow hover:shadow-xl"
           >
             BẮT ĐẦU NÀO
           </router-link>
@@ -21,13 +21,14 @@
       <!-- <div class="bg-gray-300 w-full sm:h-44 p-4 shadow-inner"> -->
         <p class="font-semibold text-left ml-2 sm:ml-8 pt-2">P/s:</p>
         <p class="text-left mx-2 sm:mx-14 font-thin">Mình là Lam - người tạo chiếc web nhỏ này cho cậu, hi vọng nó sẽ giúp cậu phần nào.
-          Sẽ có khá nhiều thiếu sót, cậu hãy cho mình biết để mình cải thiện nha! ^^
+          Sẽ có khá nhiều thiếu sót, hãy cho mình biết để mình cải thiện nha! ^^
         </p>
 
-        <p class="text-right mt-5 mr-4 sm:mr-10">Liên hệ mình qua facebook này nè >>
-          <a href="https://www.facebook.com/huyenhuong.nguyen.77" target="_blank" class="link link-primary">
-            Đây nè!!!
+        <p class="text-right mt-5 mr-4 sm:mr-3">Liên hệ mình qua 
+          <a href="https://www.facebook.com/huyenhuong.nguyen.77" target="_blank" class="link link-accent">
+            Facebook
           </a>
+          này nhaaaa!!
         </p>
       <!-- </div> -->
     </div>
