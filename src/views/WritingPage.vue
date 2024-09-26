@@ -32,7 +32,7 @@
 
         <div v-if="loading" class="fixed inset-0 flex items-center justify-center bg-opacity-50 bg-secondary z-50">
             <div class="text-center text-secondary-content">
-                <p class="text-lg sm:text-xl font-bold">Chờ một chút nhe, đang chấm nè...</p>
+                <p class="text-lg sm:text-xl font-bold bg-secondary px-3 py-2">Chờ một chút nhe, đang chấm nè...</p>
                 <svg class="animate-spin h-10 w-10 mt-4 mx-auto text-secondary-content" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                     <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                     <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>

@@ -1,7 +1,7 @@
 <template>
     <div class="my-5 sm:my-10">        
         <div class="flex flex-col sm:flex-row justify-center sm:justify-between space-y-4 mb-3 sm:mb-10"> 
-          <div class="w-5/6 sm:w-3/5 p-2 mx-8 sm:mx-10 items-center mt-24"> 
+          <div class="w-5/6 sm:w-3/5 p-2 mx-8 sm:mx-10 items-center mt-5"> 
             <p 
               class="px-3 sm:px-5 py-3 border border-base-300 rounded-lg bg-base-200 text-left mb-5 shadow-inner"
             >
@@ -16,8 +16,8 @@
           <div class="w-4/5 sm:w-1/4 p-2 mx-8 sm:mx-16 space-y-4 mt-2 sm:mt-3">
             <!-- Hiển thị Overall Band -->
             <div class="mx-20 sm:mx-2">
-              <h2 class="font-semibold text-slate-600 text-lg sm:text-xl ">Điển trung bình:</h2>
-              <p class="sm:mx-14 py-5 rounded-lg text-success font-semibold text-6xl sm:text-7xl">{{ resultObjects.overallBand.score }}</p>
+              <h2 class="font-semibold text-slate-600 text-md sm:text-xl">Điển trung bình:</h2>
+              <p class="sm:mx-14 py-3 rounded-lg text-success font-semibold text-6xl sm:text-7xl">{{ resultObjects.overallBand.score }}</p>
             </div>
              
             <!-- Hiển thị Kết quả Task Achievement -->
@@ -38,7 +38,7 @@
         </div>
 
         <!-- Hiển thị Lỗi cần lưu ý -->
-        <div class="mb-4 p-4 border rounded bg-base-200">
+        <div class="mb-4 p-4 border rounded-lg bg-base-200 ml-10 w-3/4 sm:w-3/5">
             <h2 class="font-semibold">Những câu cần lưu ý:</h2>
                 <ul>
                     <li v-for="(error, index) in resultObjects.errors" :key="index">
